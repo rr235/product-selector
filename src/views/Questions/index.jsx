@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { shape, func, string } from 'prop-types';
 import Question from '../../components/Question';
 import styles from './styles.scss';
 import { getQuestions } from './data';
 import { SET_QUESTIONS, SET_ACTIVE_QUESTION } from '../../actions';
 import { selectQuestion } from '../../reducers/questions';
 
-const Questions = () => {
+const Questions = ({ history, redirectUrl }) => {
   const dispatch = useDispatch();
   const { copy, answers } = useSelector(selectQuestion);
 
@@ -18,9 +19,13 @@ const Questions = () => {
     getData();
   }, [dispatch]);
 
-  const onSelectionHandler = (option) => {
+  const onSelectionHandler = ({ nextQuestion }) => {
     // TODO: save answers
-    dispatch({ type: SET_ACTIVE_QUESTION, payload: option.nextQuestion });
+    dispatch({ type: SET_ACTIVE_QUESTION, payload: nextQuestion });
+
+    if (typeof nextQuestion === 'string' && !nextQuestion) {
+      history.push(redirectUrl);
+    }
   };
 
   return (
@@ -34,6 +39,18 @@ const Questions = () => {
       </div>
     </div>
   );
+};
+
+Questions.propTypes = {
+  history: shape({
+    push: func,
+  }),
+  redirectUrl: string,
+};
+
+Questions.defaultProps = {
+  history: {},
+  redirectUrl: '',
 };
 
 export default Questions;
