@@ -76,6 +76,7 @@
       "copy": "Are you looking for a day to day trainer or running shoe?",
       "answers": [
         {
+          "id": 0,
           "copy": "Daily Shoe",
           "nextQuestion": 2,
           "ratingIncrease": {
@@ -90,6 +91,7 @@
           }
         },
         {
+          "id": 1,
           "copy": "Running Shoe",
           "nextQuestion": 3,
           "ratingIncrease": {
@@ -110,6 +112,7 @@
       "copy": "What type of cushioning do you prefer?",
       "answers": [
         {
+          "id": 0,
           "copy": "Direct",
           "nextQuestion": 3,
           "ratingIncrease": {
@@ -124,6 +127,7 @@
           }
         },
         {
+          "id": 1,
           "copy": "Soft",
           "nextQuestion": 4,
           "ratingIncrease": {
@@ -144,6 +148,7 @@
       "copy": "What surface do you usually run on?",
       "answers": [
         {
+          "id": 0,
           "copy": "Road",
           "nextQuestion": 5,
           "ratingIncrease": {
@@ -158,6 +163,7 @@
           }
         },
         {
+          "id": 1,
           "copy": "Trail",
           "nextQuestion": 5,
           "ratingIncrease": {
@@ -178,6 +184,7 @@
       "copy": "How would you describe your running ability?",
       "answers": [
         {
+          "id": 0,
           "copy": "Beginner",
           "nextQuestion": 5,
           "ratingIncrease": {
@@ -192,6 +199,7 @@
           }
         },
         {
+          "id": 1,
           "copy": "Experienced",
           "nextQuestion": 6,
           "ratingIncrease": {
@@ -212,6 +220,7 @@
       "copy": "Is this a training shoe or do you want something for race day?",
       "answers": [
         {
+          "id": 0,
           "copy": "Training",
           "nextQuestion": 6,
           "ratingIncrease": {
@@ -226,6 +235,7 @@
           }
         },
         {
+          "id": 1,
           "copy": "Race",
           "nextQuestion": 6,
           "ratingIncrease": {
@@ -246,6 +256,7 @@
       "copy": "What type of cushioning do you prefer?",
       "answers": [
         {
+          "id": 0,
           "copy": "Direct",
           "nextQuestion": "",
           "ratingIncrease": {
@@ -260,6 +271,7 @@
           }
         },
         {
+          "id": 1,
           "copy": "Soft",
           "nextQuestion": "",
           "ratingIncrease": {

@@ -1,9 +1,28 @@
-import React from 'react';
-import { string, arrayOf, shape, oneOfType, number } from 'prop-types';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Question from '../../components/Question';
 import styles from './styles.scss';
+import { getQuestions } from './data';
+import { SET_QUESTIONS, SET_ACTIVE_QUESTION } from '../../actions';
+import { selectQuestion } from '../../reducers/questions';
 
-const Questions = ({ questions }) => {
+const Questions = () => {
+  const dispatch = useDispatch();
+  const { copy, answers } = useSelector(selectQuestion);
+
+  useEffect(() => {
+    const getData = async () => {
+      const questions = await getQuestions();
+      dispatch({ type: SET_QUESTIONS, payload: questions });
+    };
+    getData();
+  }, [dispatch]);
+
+  const onSelectionHandler = (option) => {
+    // TODO: save answers
+    dispatch({ type: SET_ACTIVE_QUESTION, payload: option.nextQuestion });
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.headlineWrapper}>
@@ -11,30 +30,10 @@ const Questions = ({ questions }) => {
         <p className={styles.headline}>30 days risk free</p>
       </div>
       <div className={styles.questions}>
-        {questions.map(({ question, options }) => (
-          <Question question={question} options={options} key={question.id} />
-        ))}
+        {!!copy && <Question question={copy} options={answers} onSelection={onSelectionHandler} />}
       </div>
     </div>
   );
-};
-
-const copyType = shape({
-  copy: string,
-  id: oneOfType([string, number]),
-});
-
-Questions.propTypes = {
-  questions: arrayOf(
-    shape({
-      question: copyType,
-      option: arrayOf(copyType),
-    })
-  ),
-};
-
-Questions.defaultProps = {
-  questions: [],
 };
 
 export default Questions;

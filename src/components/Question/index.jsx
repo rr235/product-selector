@@ -12,7 +12,7 @@ const Question = ({ question, options, onSelection }) => {
 
   return (
     <div>
-      <h1>{question.copy}</h1>
+      <h1>{question}</h1>
       {options.map((option) => (
         <Button className={styles.button} onClick={() => selectionHandler(option)} key={option.id}>
           {option.copy}
@@ -28,13 +28,12 @@ const copyType = shape({
 });
 
 Question.propTypes = {
-  question: copyType,
+  question: string.isRequired,
   options: arrayOf(copyType),
   onSelection: func,
 };
 
 Question.defaultProps = {
-  question: {},
   options: [],
   onSelection: null,
 };

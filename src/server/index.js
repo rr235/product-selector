@@ -2,7 +2,7 @@ const express = require('express');
 const http = require('http');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const data = require('./data.json');
+const { getQuestions } = require('./utils');
 
 const { SERVER_PORT } = process.env;
 const port = SERVER_PORT || 5000;
@@ -22,5 +22,5 @@ server.listen(port, () => {
 });
 
 app.get('/questions', async (req, res) => {
-  res.send(data.questions);
+  res.send(getQuestions());
 });
