@@ -1,0 +1,12 @@
+$background-color: #000;
+$color: #fafafa;
+$border-color: #777;
+
+.button  {
+  background-color: $background-color;
+  color: $color;
+  padding: 1rem;
+  border: 0;
+  border-bottom: 3px solid $border-color;
+  font-size: 1.2rem;
+}
