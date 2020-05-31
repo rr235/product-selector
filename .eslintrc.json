@@ -11,6 +11,12 @@
     "document": false
   },
   "rules": {
-    "no-shadow": 1
+    "no-shadow": 1,
+    "react/jsx-props-no-spreading": [
+      2,
+      {
+        "custom": "ignore"
+      }
+    ]
   }
 }
