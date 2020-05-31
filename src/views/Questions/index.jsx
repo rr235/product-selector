@@ -4,12 +4,12 @@ import { shape, func, string } from 'prop-types';
 import Question from '../../components/Question';
 import styles from './styles.scss';
 import { getQuestions } from './data';
-import { SET_QUESTIONS, SET_ACTIVE_QUESTION } from '../../actions';
+import { SET_QUESTIONS, SET_ACTIVE_QUESTION, SET_ANSWER } from '../../actions';
 import { selectQuestion } from '../../reducers/questions';
 
 const Questions = ({ history, redirectUrl }) => {
   const dispatch = useDispatch();
-  const { copy, answers } = useSelector(selectQuestion);
+  const { id, copy, answers } = useSelector(selectQuestion);
 
   useEffect(() => {
     const getData = async () => {
@@ -19,12 +19,17 @@ const Questions = ({ history, redirectUrl }) => {
     getData();
   }, [dispatch]);
 
-  const onSelectionHandler = ({ nextQuestion }) => {
-    // TODO: save answers
-    dispatch({ type: SET_ACTIVE_QUESTION, payload: nextQuestion });
+  const onSelectionHandler = ({ nextQuestion, id: answerId }) => {
+    // save answers
+    const answer = { question: id, answer: answerId };
+    dispatch({ type: SET_ANSWER, payload: answer });
 
     if (typeof nextQuestion === 'string' && !nextQuestion) {
+      // show next page
       history.push(redirectUrl);
+    } else {
+      // show next question
+      dispatch({ type: SET_ACTIVE_QUESTION, payload: nextQuestion });
     }
   };
 

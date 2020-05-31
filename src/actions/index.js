@@ -1,2 +1,3 @@
 export const SET_QUESTIONS = 'SET_QUESTIONS';
 export const SET_ACTIVE_QUESTION = 'SET_ACTIVE_QUESTION';
+export const SET_ANSWER = 'SET_ANSWER';
