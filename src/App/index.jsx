@@ -1,8 +1,10 @@
 import React from 'react';
+import Start from '../views/Start';
+import styles from './styles.scss';
 
 const App = () => (
-  <div>
-    <h1>On - Shoes Finder</h1>
+  <div className={styles.container}>
+    <Start />
   </div>
 );
 
