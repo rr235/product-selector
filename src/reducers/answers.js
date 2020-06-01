@@ -9,4 +9,7 @@ const answers = (state = [], action) => {
   }
 };
 
+const selectAnswers = (state) => state.answers;
+
 export default answers;
+export { selectAnswers };
