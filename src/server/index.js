@@ -3,7 +3,7 @@ const http = require('http');
 const path = require('path');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const { getQuestions } = require('./utils');
+const { getQuestions, findShoesFromAnswers } = require('./utils');
 
 const { SERVER_PORT } = process.env;
 const port = SERVER_PORT || 5000;
@@ -27,7 +27,8 @@ app.get('/questions', async (req, res) => {
 });
 
 app.post('/results', async (req, res) => {
-  res.send({ shoes: 'cloudx', image: 'http://localhost:5000/images/Cloud_X.png' });
+  const shoesInfo = findShoesFromAnswers(req.body);
+  res.send(shoesInfo);
 });
 
 app.use('/images', express.static(path.join(__dirname, '/images')));

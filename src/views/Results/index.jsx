@@ -18,7 +18,8 @@ const Results = () => {
   return (
     <div>
       <h1>Congratulations!</h1>
-      <ProductInfo title={result.shoes} imageUrl={result.image} />
+      <p>Based on your selection we have decided on {result.name}</p>
+      <ProductInfo title={result.name} imageUrl={result.image} />
     </div>
   );
 };

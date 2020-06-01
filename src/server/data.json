@@ -287,5 +287,48 @@
         }
       ]
     }
+  ],
+
+  "shoesDetails": [
+    {
+      "code": "cloud",
+      "name": "Cloud",
+      "image": "http://localhost:5000/images/cloud.png"
+    },
+    {
+      "code": "cloudx",
+      "name": "Cloud X",
+      "image": "http://localhost:5000/images/cloudx.png"
+    },
+    {
+      "code": "cloudflow",
+      "name": "Cloudflow",
+      "image": "http://localhost:5000/images/cloudflow.png"
+    },
+    {
+      "code": "cloudventure",
+      "name": "Cloudventure",
+      "image": "http://localhost:5000/images/cloudventure.png"
+    },
+    {
+      "code": "cloudsurfer",
+      "name": "Cloudsurfer",
+      "image": "http://localhost:5000/images/cloudsurfer.png"
+    },
+    {
+      "code": "cloudventure_waterproof",
+      "name": "Cloudventure Waterproof",
+      "image": "http://localhost:5000/images/cloudventure_waterproof.png"
+    },
+    {
+      "code": "cloudventure_peak",
+      "name": "Cloudventure Peak",
+      "image": "http://localhost:5000/images/cloudventure_peak.png"
+    },
+    {
+      "code": "cloudflyer",
+      "name": "Cloudflyer",
+      "image": "http://localhost:5000/images/cloudflyer.png"
+    }
   ]
 }
