@@ -1,5 +1,6 @@
 const express = require('express');
 const http = require('http');
+const path = require('path');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const { getQuestions } = require('./utils');
@@ -24,3 +25,9 @@ server.listen(port, () => {
 app.get('/questions', async (req, res) => {
   res.send(getQuestions());
 });
+
+app.post('/results', async (req, res) => {
+  res.send({ shoes: 'cloudx', image: 'http://localhost:5000/images/Cloud_X.png' });
+});
+
+app.use('/images', express.static(path.join(__dirname, '/images')));
