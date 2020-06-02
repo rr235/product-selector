@@ -70,7 +70,7 @@
       "./src/setupTests.js"
     ],
     "moduleNameMapper": {
-      "\\.(css|scss|sass)$": "identity-obj-proxy"
+      "\\.(css|scss|sass|gif)$": "identity-obj-proxy"
     }
   }
 }

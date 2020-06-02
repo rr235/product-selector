@@ -34,7 +34,11 @@ app.post('/results', async (req, res) => {
   }
 
   const shoesInfo = findShoesFromAnswers(req.body);
-  res.send(shoesInfo);
+
+  // simulate computation delay of 2 seconds
+  setTimeout(() => {
+    res.send(shoesInfo);
+  }, 2000);
 });
 
 app.use('/images', express.static(path.join(__dirname, '/images')));
