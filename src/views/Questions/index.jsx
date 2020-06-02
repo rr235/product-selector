@@ -4,7 +4,7 @@ import { shape, func, string } from 'prop-types';
 import Question from '../../components/Question';
 import styles from './styles.scss';
 import { getQuestions } from './data';
-import { SET_QUESTIONS, SET_ACTIVE_QUESTION, SET_ANSWER } from '../../actions';
+import { SET_QUESTIONS, SET_ACTIVE_QUESTION, ADD_ANSWER } from '../../actions';
 import { selectQuestion } from '../../reducers/questions';
 
 const Questions = ({ history, redirectUrl }) => {
@@ -22,7 +22,7 @@ const Questions = ({ history, redirectUrl }) => {
   const onSelectionHandler = ({ nextQuestion, id: answerId }) => {
     // save answers
     const answer = { question: id, answer: answerId };
-    dispatch({ type: SET_ANSWER, payload: answer });
+    dispatch({ type: ADD_ANSWER, payload: answer });
 
     if (typeof nextQuestion === 'string' && !nextQuestion) {
       // show next page

@@ -1,8 +1,8 @@
-import { SET_ANSWER } from '../actions';
+import { ADD_ANSWER } from '../actions';
 
 const answers = (state = [], action) => {
   switch (action.type) {
-    case SET_ANSWER:
+    case ADD_ANSWER:
       return [...state, action.payload];
     default:
       return state;
