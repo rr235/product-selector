@@ -7,19 +7,30 @@ import { selectAnswers } from '../../reducers/answers';
 
 const Results = () => {
   const [result, setResult] = useState({});
+  const [errorMessage, setErrorMessage] = useState(null);
   const answers = useSelector(selectAnswers);
   useEffect(() => {
-    const postData = async () => {
-      const data = await postAnswers(answers);
-      setResult(data);
-    };
-    postData();
+    postAnswers(answers)
+      .then((data) => {
+        setResult(data);
+      })
+      .catch((error) => {
+        setErrorMessage(error.response.data.message);
+      });
   }, [answers]);
+
+  if (errorMessage) {
+    return (
+      <div className={styles.container}>
+        <p>{errorMessage}</p>
+      </div>
+    );
+  }
 
   return (
     <div className={styles.container}>
       <h1>Congratulations!</h1>
-      <p>Based on your selection we have decided on {result.name}</p>
+      <p>Based on your selection we have decided on {result.name}! Enjoy the 30 days trial!</p>
       <ProductInfo title={result.name} imageUrl={result.image} />
     </div>
   );

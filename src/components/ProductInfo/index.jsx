@@ -10,11 +10,12 @@ const ProductInfo = ({ title, imageUrl }) => (
 );
 
 ProductInfo.propTypes = {
-  title: string.isRequired,
+  title: string,
   imageUrl: string,
 };
 
 ProductInfo.defaultProps = {
+  title: '',
   imageUrl: '',
 };
 

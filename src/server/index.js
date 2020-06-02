@@ -27,6 +27,12 @@ app.get('/questions', async (req, res) => {
 });
 
 app.post('/results', async (req, res) => {
+  if (!req.body.length) {
+    res.status(403);
+    res.send({ message: 'Error: No data provided' });
+    return;
+  }
+
   const shoesInfo = findShoesFromAnswers(req.body);
   res.send(shoesInfo);
 });

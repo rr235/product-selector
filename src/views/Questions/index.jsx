@@ -27,6 +27,7 @@ const Questions = ({ history, redirectUrl }) => {
     if (typeof nextQuestion === 'string' && !nextQuestion) {
       // show next page
       history.push(redirectUrl);
+      dispatch({ type: SET_ACTIVE_QUESTION, payload: 0 });
     } else {
       // show next question
       dispatch({ type: SET_ACTIVE_QUESTION, payload: nextQuestion });
